@@ -17,8 +17,8 @@ class AppConstants {
   static const int localUid = 0;
   static const int remoteUid = 1;
 
-  // Timeouts
-  static const Duration connectTimeout = Duration(seconds: 15);
-  static const Duration receiveTimeout = Duration(seconds: 15);
+  // Timeouts (fast failover to cache)
+  static const Duration connectTimeout = Duration(seconds: 5);
+  static const Duration receiveTimeout = Duration(seconds: 5);
 }
 

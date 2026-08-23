@@ -19,13 +19,15 @@ class FeedCubit extends Cubit<FeedState> {
   Future<void> loadFeed() async {
     if (state.status == FeedStatus.loading) return;
 
-    emit(state.copyWith(
-      status: FeedStatus.loading,
-      posts: [],
-      currentPage: 0,
-      hasReachedMax: false,
-      errorMessage: null,
-    ));
+    if (state.posts.isEmpty) {
+      emit(state.copyWith(
+        status: FeedStatus.loading,
+        posts: [],
+        currentPage: 0,
+        hasReachedMax: false,
+        errorMessage: null,
+      ));
+    }
 
     final result = await _getFeedUseCase(
       page: 1,

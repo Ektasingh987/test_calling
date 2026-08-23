@@ -14,13 +14,7 @@ import 'features/feed/presentation/screens/feed_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Lock to portrait
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
-  // Set system UI overlay style
+  // Set system UI overlay style immediately
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -28,11 +22,15 @@ Future<void> main() async {
     ),
   );
 
-  // Load .env
-  await dotenv.load(fileName: '.env');
-
-  // Initialize dependencies
-  await di.initDependencies();
+  // Parallelize critical startup tasks for instant app launch
+  await Future.wait([
+    dotenv.load(fileName: '.env'),
+    di.initDependencies(),
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]),
+  ]);
 
   runApp(const GaonGramApp());
 }
