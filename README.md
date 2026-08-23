@@ -1,4 +1,4 @@
-# 🌾 GaonGram — Social Feed & Real-Time Agora Calling App
+# 📱 Social Feed & Real-Time Agora Calling App
 
 A modern, high-performance Flutter mobile application built with **Clean Architecture**, **BLoC/Cubit State Management**, **Hive Offline-First Local Persistence**, and **1-on-1 Real-Time Agora Video & Voice Calling**.
 
@@ -7,7 +7,7 @@ A modern, high-performance Flutter mobile application built with **Clean Archite
 ## 📸 Core Features
 
 ### 📰 1. Read-Only Social Media Feed & Hive Offline-First Caching
-- **API Integration**: Connects to `https://gaongram.com/api/v1/posts/` using Dio with custom interceptors and authentication header support.
+- **API Integration**: Connects to the social feed REST API using Dio with custom interceptors and authentication header support.
 - **Offline-First Persistence**: Fetched posts are stored in Hive local storage (`posts_box`). When offline, data loads immediately from cache without any blank screen.
 - **Shimmer Skeletons**: Gradient skeleton placeholders displayed during initial feed fetch.
 - **Pull-to-Refresh**: Seamlessly triggers feed refresh and updates local Hive cache.
@@ -121,7 +121,6 @@ lib/
 | **Environment Config** | `flutter_dotenv` `^5.2.1` | Secure runtime environment variables |
 | **Functional Error Handling** | `fpdart` `^1.1.0` | Either type for clean failure/success handling |
 
-
 ---
 
 ## 🚀 Getting Started & How to Run
@@ -135,8 +134,8 @@ lib/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/gaongram_chat.git
-   cd gaongram_chat
+   git clone https://github.com/Ektasingh987/test_calling.git
+   cd test_calling
    ```
 
 2. **Install dependencies**:
@@ -164,11 +163,11 @@ To test live audio/video calling between two real physical phones:
 2. **Phone A**:
    - Navigate to the **Calls** tab.
    - Tap **`New Call`** -> Choose **Voice Call** or **Video Call**.
-   - Phone A enters channel `gaongram_main`.
+   - Phone A enters the active channel.
 3. **Phone B**:
    - Navigate to the **Calls** tab.
    - Tap **`New Call`** -> Choose the same call type.
-   - Phone B enters channel `gaongram_main`.
+   - Phone B enters the active channel.
 4. **Live Connected**:
    - Both phones will immediately connect with two-way HD audio and video.
    - Test in-call features: **Mute**, **Speakerphone**, **Flip Camera**, and **End Call**.
@@ -188,4 +187,3 @@ To test live audio/video calling between two real physical phones:
 | **Simulate Incoming** | Tap Call FAB -> Simulate Incoming | Displays pulsing incoming screen with caller details; Accept/Decline saves to Hive history. |
 | **Direct Post Call** | Tap 📞 or 📹 on any feed post | Starts a direct call with that post author. |
 | **Call History** | Complete or decline any call | History list updates automatically with color-coded badge, duration, and timestamp. |
-
