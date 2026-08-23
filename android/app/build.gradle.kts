@@ -24,7 +24,7 @@ android {
         applicationId = "com.gaongram.gaongram_chat"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion // Required by agora_rtc_engine
+        minSdk = 21 // Required by agora_rtc_engine
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
